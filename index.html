@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Dima's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Full Background Image with Blur */
+        body {
+            position: relative;
+            overflow-x: hidden;  /* Prevent horizontal scrolling */
+            height: auto;
+            min-height: 100vh;
+            background-image: url('bg1.png');
+            background-size: cover; /* Make it cover, but let's tweak intro */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Zoom Out the background for the intro section */
+        /* Intro Section with blurred background */
+        #intro {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            text-align: center;
+            z-index: 10;
+            opacity: 1;
+            animation: fadeOut 2s forwards; /* Shortened intro fade-out time */
+            background-image: url('bg1.png'); /* Set the bg1.png as background */
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px); /* Apply blur effect to the background */
+        }
+ <!-- Intro Section -->
+    <section id="intro">
+        <div class="overlay"></div>
+        <img src="favicon.png" alt="Profile Photo">
+        <h1>Mr.Dima Retouching</h1>
+    </section>
+
+        /* Optional: Darken the background slightly for contrast */
+        #intro .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for contrast */
+        }
+
+
+        /* Overlay for text readability */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Intro Section */
+        #intro {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            text-align: center;
+            z-index: 10;
+            opacity: 1;
+            animation: fadeOut 2s forwards;
+        }
+
+        #intro img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 4px solid #fff;
+            box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.6);
+        }
+
+        #intro h1 {
+            font-size: 36px;
+            color: #FFD700;
+            margin-left: 20px;
+            text-shadow: 0px 4px 8px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Animation to fade out the intro section */
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
+
+        /* Header with Blurred Background Image */
+        header {
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            margin: 20px;
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+            opacity: 1;
+            animation: fadeIn 2s forwards;
+            color: #fff;
+        }
+
+        .profile-photo {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 4px solid #fff;
+            box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.6);
+            margin-right: 20px;
+        }
+
+        header h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 0px 4px 8px rgba(255, 215, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #FFD700;
+            text-shadow: 0px 3px 6px rgba(255, 215, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 3px 8px;
+            border-radius: 8px;
+        }
+
+        /* Portfolio Gallery */
+        .portfolio-gallery {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .portfolio-image {
+            width: calc(33.33% - 20px);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .portfolio-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Rating Stars */
+        .rating {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 14px;
+            color: #FFD700;
+        }
+
+        .rating span {
+            cursor: pointer;
+        }
+
+        /* Floating Social Links */
+        #contact {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        #contact a {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        #contact a i {
+            font-size: 30px;
+        }
+
+        #contact .whatsapp-link i {
+            color: #32CD32;
+        }
+
+        #contact .email-link i {
+            color: #FFD700;
+        }
+
+        #contact .facebook-link i {
+            color: #3b5998;
+        }
+
+        #contact a:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .portfolio-image {
+                width: calc(50% - 10px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-image {
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Blurred Background -->
+    <div class="blurred-bg"></div>
+
+    <!-- Overlay to make content readable -->
+    <div class="overlay"></div>
+
+   
+
+    <!-- Header with Blurred Background Image -->
+    <header>
+        <img src="favicon.png" alt="Profile Photo" class="profile-photo">
+        <div>
+            <h2>Mr.Dima Portfolio</h2>
+            <p>Take a look at some of my recent work:</p>
+        </div>
+    </header>
+
+    <!-- Portfolio Gallery -->
+    <section class="portfolio-gallery">
+        <div class="portfolio-image">
+            <img src="testimage1.png" alt="Retouched Image 1">
+            <div class="rating" id="rating1">
+                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+            </div>
+        </div>
+        <div class="portfolio-image">
+            <img src="testimage2.png" alt="Retouched Image 2">
+            <div class="rating" id="rating2">
+                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+            </div>
+        </div>
+        <div class="portfolio-image">
+            <img src="testimage3.png" alt="Retouched Image 3">
+            <div class="rating" id="rating3">
+                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+            </div>
+        </div>
+        <div class="portfolio-image">
+            <img src="testimage4.png" alt="Retouched Image 3">
+            <div class="rating" id="rating3">
+                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+            </div>
+        </div>
+        <div class="portfolio-image">
+            <img src="testimage5.png" alt="Retouched Image 3">
+            <div class="rating" id="rating3">
+                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+            </div>
+        </div>
+        <div class="portfolio-image">
+            <img src="testimage6.png" alt="Retouched Image 3">
+            <div class="rating" id="rating3">
+                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Social Links -->
+    <section id="contact">
+        <a href="https://wa.me/0782481192" class="whatsapp-link"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:mrdimaretouching@egmail.com" class="email-link"><i class="fas fa-envelope"></i></a>
+        <a href="https://web.facebook.com/profile.php?id=61554879112275" class="facebook-link"><i class="fab fa-facebook"></i></a>
+    </section>
+
+</body>
+</html>
